@@ -1,6 +1,7 @@
 body {
 	font-family: arial;
 	padding: 20px 40px;
+	background-color: #333333;
 }
 ul {
 	
@@ -23,4 +24,19 @@ a{
 
 a:hover {
 	text-decoration: underline;
+}
+#face{
+	width: 100px;
+}
+#face:hover{
+	width: 200px;
+
+}
+#button
+{
+	position: absolute;
+    left: 40px;
+    width: 90px;
+    height: 90px;
+    margin: 5px;
 }

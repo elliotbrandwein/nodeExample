@@ -9,14 +9,16 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.get('/', function (req, res) {
+  console.log('served homepage');
   res.render('home');
 });
 app.get('/about', function (req, res) {
+  console.log('served about page');
   res.render('about');
 });
-app.get('/inspiration', function (req, res) {
-	var randomQuote = quotes[Math.floor(Math.random()*quotes.length)];
-	res.render('inspiration', { inspirational: randomQuote });
+app.get('/special', function (req, res) {
+	console.log('served the special page');
+	res.render('special');
   
 });
 

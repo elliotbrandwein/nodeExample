@@ -1,24 +1,26 @@
-var http = require('http');
 
-http.createServer(function( request,response){
-response.writeHead(200,{"Content-Type":"text/plain"});
-response.write("Hello world");
-response.end()
-}).listen(7000);
+var express = require('express');
+var app = express();
+var exphbs  = require('express-handlebars'); 
+app.engine('handlebars', exphbs(
+	{defaultLayout: 'main'})
+);
+app.set('view engine', 'handlebars');
 
-
-/*const http = require('http');
-
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
+app.get('/', function(req, res) 
+{     
+	res.render('home'); 
+});
+app.get('/about', function(req, res) 
+{     
+	res.render('about'); 
+});
+app.get('/inspiration', function(req, res) 
+{     
+	res.render('inspiration'); 
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(3000, function ()
+{   
+	console.log('Inspiration app listening on port 3000!'); 
 });
-*/
